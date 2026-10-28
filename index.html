@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Reading List Application | Lecture 11</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="header-content">
+          <h1>📚 Book Reading List</h1>
+          <p class="subtitle">Lecture 11 Web Application · By Golu Kumar (JECRC University)</p>
+        </div>
+        <button id="open-modal-btn" class="btn btn-primary">+ Add New Book</button>
+      </header>
+
+      <!-- Dashboard Stats -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-num" id="stat-total">0</span>
+          <span class="stat-label">Total Books</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-reading">0</span>
+          <span class="stat-label">Currently Reading</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-completed">0</span>
+          <span class="stat-label">Completed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-want">0</span>
+          <span class="stat-label">Want to Read</span>
+        </div>
+      </section>
+
+      <!-- Filter Tabs -->
+      <div class="controls-bar">
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-filter="all">All</button>
+          <button class="tab-btn" data-filter="reading">Reading</button>
+          <button class="tab-btn" data-filter="completed">Completed</button>
+          <button class="tab-btn" data-filter="want-to-read">Want to Read</button>
+        </div>
+        <input type="search" id="search-input" placeholder="Search by title or author..." />
+      </div>
+
+      <!-- Book Cards Grid -->
+      <main id="books-grid" class="books-grid">
+        <!-- Injected dynamically via script.js -->
+      </main>
+      <p id="empty-state" class="empty-state" hidden>No books found in this category.</p>
+
+      <!-- Add Book Modal -->
+      <div id="book-modal" class="modal-overlay" hidden>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Add Book to Reading List</h2>
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+          </div>
+          <form id="book-form">
+            <div class="form-group">
+              <label for="book-title">Book Title *</label>
+              <input type="text" id="book-title" required placeholder="e.g. Clean Code" />
+            </div>
+            <div class="form-group">
+              <label for="book-author">Author *</label>
+              <input type="text" id="book-author" required placeholder="e.g. Robert C. Martin" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="book-genre">Genre</label>
+                <input type="text" id="book-genre" placeholder="e.g. Programming, Fiction" />
+              </div>
+              <div class="form-group">
+                <label for="book-status">Status</label>
+                <select id="book-status">
+                  <option value="want-to-read">Want to Read</option>
+                  <option value="reading">Reading</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="book-rating">Rating (1 to 5 Stars)</label>
+              <select id="book-rating">
+                <option value="5">★★★★★ (5 Stars)</option>
+                <option value="4">★★★★☆ (4 Stars)</option>
+                <option value="3" selected>★★★☆☆ (3 Stars)</option>
+                <option value="2">★★☆☆☆ (2 Stars)</option>
+                <option value="1">★☆☆☆☆ (1 Star)</option>
+              </select>
+            </div>
+            <div class="modal-actions">
+              <button type="button" id="cancel-btn" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary">Save Book</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
